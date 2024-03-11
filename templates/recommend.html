@@ -1,0 +1,138 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<style>
+    .text-white {
+        color: black
+    }
+</style>
+
+<body>
+    </nav>
+    <nav class="navbar" style="background-color:black">
+        <a class="navbar-brand">My Book recommender</a>
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/recommend">Recommend</a></li>
+            <li><a href="">About</a></li>
+            <li><a>Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-white" style="font-size:50px">Recommend Books</h1>
+                <form action="/recommend_books" method="post">
+                    <input name="user_input" type="text" class="form-control"><br>
+                    <input type="submit" class="btn btn-lg btn-warning" value="Recommend">
+                    <br><br>
+                    <select name="recommend_option" class="form-control">
+                        <option value="same_author">Recommend by Same Author</option>
+                        <option value="same_category">Recommend by Same Category</option>
+                        <option value="both">Recommend by Both Author and Category</option>
+                    </select>
+                </form>
+
+            </div>
+
+            {% if data %}
+
+            {% for i in data %}
+            <div class="col-md-3" style="margin-top:50px">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="{{i[2]}}">
+                        <p class="text-white">{{i[0]}}</p>
+                        <h4 class="text-white">{{i[1]}}</h4>
+                        <p class="text-white">{{i[3]}}</p>
+                        <p class="text-white">{{i[4]}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% endif %}
+
+        </div>
+    </div>
+
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Edu+TAS+Beginner:wght@600&family=Noto+Serif:wght@100..900&family=Playfair+Display:ital@0;1&family=Poppins:wght@500&display=swap"
+    rel="stylesheet">
+    <style>
+        * {
+            font-family: "Playfair Display", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar" style="background-color: black">
+        <a class="navbar-brand">My Book Recommender</a>
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/recommend">Recommend</a></li>
+            <li><a href="">About</a></li>
+            <li><a>Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="font-size: 50px">Recommend Books</h1>
+                <form action="/recommend_books" method="post">
+                    <input name="user_input" type="text" class="form-control"><br>
+                    <input type="submit" class="btn btn-lg btn-warning" value="Recommend">
+                    <br><br>
+                    <select name="recommend_option" class="form-control">
+                        <option value="same_author">Recommend by Same Author</option>
+                        <option value="same_category">Recommend by Same Category</option>
+                        <option value="both">Recommend by Both Author and Category</option>
+                        <option value="general">General Recommend</option>
+                    </select>
+                </form>
+            </div>
+
+            {% if data %}
+            {% for item in data %}
+            <div class="col-md-3" style="margin-top: 50px">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="{{ item[2] }}">
+                        <p>{{ item[0] }}</p>
+                        <p>{{ item[1] }}</p>
+                        <p>{{ item[3] }}</p>
+                        <p>{{ item[4] }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

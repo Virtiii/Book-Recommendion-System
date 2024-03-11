@@ -1,0 +1,16 @@
+.text-white {
+    color: black;
+}
+
+
+body {
+    width: 600px;
+    text-align: center;
+  }
+  
+.outer{
+    height: 160px;
+    width: 160px;
+    border: 1px solid rgb(104, 104, 217);
+    border-radius: 100%;
+}
